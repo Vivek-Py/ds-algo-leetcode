@@ -1,15 +1,13 @@
 var longestCommonPrefix = function (strs) {
-  let prefix = "";
-  if (strs === null || strs.length === 0) return prefix;
-  const str = strs[0];
-  for (let i = 0; i < strs[0].length; i++) {
-    const char = str[i];
-
-    for (let j = 1; j < strs.length; j++) {
-      if (strs[j][i] !== char) return prefix;
+  let commonLength = strs[0].length;
+  for (let i = 1; i < strs.length; ++i) {
+    let j = 0;
+    const limit = commonLength > strs[i].length ? strs[i].length : commonLength;
+    while (j < limit) {
+      if (strs[0][j] !== strs[i][j]) break;
+      ++j;
     }
-    prefix = prefix + char;
+    commonLength = j;
   }
-
-  return prefix;
+  return strs[0].substring(0, commonLength);
 };

@@ -8,6 +8,5 @@ const removeDuplicates = function (nums) {
     nums[index++] = nums[itr];
     count++;
   }
-  example1.length = count;
   return count;
 };
