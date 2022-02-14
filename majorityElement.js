@@ -41,3 +41,4 @@ var majorityElement = function (nums) {
   }
   return majorElement;
 }; */
+
