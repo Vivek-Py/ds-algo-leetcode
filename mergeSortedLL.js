@@ -12,6 +12,7 @@ let b = l2;
 l2.next = new ListNode(4); */
 
 // console.log(mergeTwoLists(a, b));
+// ~70% Faster
 var mergeTwoLists = function (list1, list2) {
   let mergedList = new ListNode();
   let head = mergedList;
