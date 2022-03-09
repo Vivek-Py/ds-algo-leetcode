@@ -3,6 +3,7 @@ function TreeNode(val, left, right) {
   this.left = left === undefined ? null : left;
   this.right = right === undefined ? null : right;
 }
+
 const head = new TreeNode(1, new TreeNode(2), new TreeNode(3));
 
 /* 
@@ -35,12 +36,29 @@ function inorderTraversal(root) {
 
 console.log(inorderTraversal(head));
 
+// pop -> removes ele which is at thwe last index
+// also it return the popped
 // Recursive approach
-/* var inorderTraversal = function (root) {
+var inorderTraversal = function (root) {
   if (root === null) return [];
   let leftVal = inorderTraversal(root.left);
   let rightVal = inorderTraversal(root.right);
   return [...leftVal, root.val, ...rightVal];
-}; */
+};
+// preOrder -> root -> left -> right
+var preOrderTraversal = function (root) {
+  if (root === null) return [];
+  let leftVal = preOrderTraversal(root.left);
+  let rightVal = preOrderTraversal(root.right);
+  return [root.val, ...leftVal, ...rightVal];
+};
+
+// post -> left -> right -> root
+var postOrderTraversal = function (root) {
+  if (root === null) return [];
+  let leftVal = postOrderTraversal(root.left);
+  let rightVal = postOrderTraversal(root.right);
+  return [...leftVal, ...rightVal, root.val];
+};
 
 // Can we modify the same recursive approach for preOrder, and postOrder as well?
