@@ -26,7 +26,7 @@
 
 console.log(threeSum([-1, 0, 1, 2, -1, -4]));
  */
-
+/* 
 var threeSum = function (nums) {
   let res = [];
   let sortedNum = nums.sort((a, b) => a - b);
@@ -65,6 +65,24 @@ var threeSum = function (nums) {
       //   console.log("im stuck at IL2");
     }
   }
+  return res;
+}; */
+
+var threeSum = function (nums) {
+  let res = [];
+
+  for (let i = 0; i < nums.length - 2; ++i) {
+    const set = new Set();
+    const currSum = 0 - nums[i];
+    for (let j = i + 1; i < nums.length; ++j) {
+      if (set.has(currSum - nums[j])) {
+        res.push([nums[i], nums[j], currSum - nums[j]]);
+        break;
+      }
+      set.add(nums[j]);
+    }
+  }
+
   return res;
 };
 console.log(threeSum([-1, 0, 1, 2, -1, -4]));
